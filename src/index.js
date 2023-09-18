@@ -4,10 +4,37 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { ThemeProvider } from "@material-tailwind/react";
+import ErrorPage from "./error-page";
+import LeadCreatePage from "./components/LeadCreatePage";
+
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+
+  },
+  {
+    path: "newlead/",
+    element: <LeadCreatePage/>,
+  },
+]);
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
