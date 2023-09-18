@@ -7,7 +7,7 @@ import LeadCreateForm from "./components/LeadCreateForm";
 import {useEffect} from "react";
 import { useState } from "react";
 import axios, {isCancel, AxiosError} from 'axios';
-
+import myApi from './api/myApi';
 
 
 
@@ -17,17 +17,29 @@ function App() {
   const [leads, setLeads] = useState([]);  
   
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/leads/")
-      .then((response) => {
-        
-        const data = response.data;
-        console.log(data);
-        setLeads(data);
-        
-      })
-      .catch(err => console.log(err));
+    myApi.get("/leads/")
+        .then((response) => {
+            
+          const data = response.data;
+          console.log(data);
+          setLeads(data);
+          
+        })
+        .catch(err => console.log(err));
   }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:8000/api/leads/")
+  //     .then((response) => {
+        
+  //       const data = response.data;
+  //       console.log(data);
+  //       setLeads(data);
+        
+  //     })
+  //     .catch(err => console.log(err));
+  // }, []);
 
   // const leadsList = leads
   // .map((lead) => (
@@ -62,7 +74,7 @@ function App() {
         Welcome!
       </p>
       <p className="text-gray-500 text-lg">
-        React and Tailwind CSS in action
+        React and Tailwind CSS in action TEST TEST TEST 
       </p>
       
     </div>

@@ -1,5 +1,10 @@
 // import '../App.css';
 // import NavBar from "./components/NavBar";
+import myApi from '../api/myApi';
+import AsyncSelect from 'react-select/async';
+
+
+
 
 import React from 'react'
 import {
@@ -33,28 +38,34 @@ export default function LeadCreate() {
                 type="text" id="age" name="age" placeholder="John Doe" />
             </div>
             <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="name">Description</label>
+                <label className="block text-gray-700 text-sm font-bold mb-2" for="name"> Description</label>
                 <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-                type="text" id="description" name="description" placeholder="John Doe" />
+                type="text" id="age" name="age" placeholder="John Doe" />
             </div>
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" for="name"> Agent</label>
+                <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                type="text" id="age" name="age" placeholder="John Doe" />
+            </div>
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" for="name"> Category</label>
+                <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                type="text" id="age" name="age" placeholder="John Doe" />
+            </div>
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" for="name"> Phone-Number</label>
+                <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                type="text" id="age" name="age" placeholder="John Doe" />
+            </div>
+           
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
                 <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                 type="email" id="email" name="email" placeholder="john@example.com" />
             </div>
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
-                <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-                type="password" id="password" name="password" placeholder="********" />
-            </div>
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="confirm-password">Confirm Password</label>
-                <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-                type="password" id="confirm-password" name="confirm-password" placeholder="********" />
-            </div>
             <button
                 className="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
-                type="submit">Register
+                type="submit">Confirm
             </button>
         </form>
     </div>
