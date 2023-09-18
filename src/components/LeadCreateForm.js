@@ -6,7 +6,7 @@ import AsyncSelect from 'react-select/async';
 
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Card,
     Input,
@@ -15,8 +15,15 @@ import {
     Typography,
   } from "@material-tailwind/react";
 
+const [items, setItems] = useState([]);
+const [inputValue, setValue] = useState('');
+const [selectedValue, setSelectedValue] = useState(null);
+
+
 
 export default function LeadCreate() {
+
+
     return (
         
     <div className="container mx-auto py-8">
