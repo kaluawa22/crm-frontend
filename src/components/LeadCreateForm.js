@@ -15,14 +15,32 @@ import {
     Typography,
   } from "@material-tailwind/react";
 
-const [items, setItems] = useState([]);
-const [inputValue, setValue] = useState('');
-const [selectedValue, setSelectedValue] = useState(null);
 
 
 
 export default function LeadCreate() {
 
+    const [items, setItems] = useState([]);
+    const [inputValue, setValue] = useState('');
+    const [selectedValue, setSelectedValue] = useState(null);
+
+    // handle input change event
+    const handleInputChange = value => {
+        setValue(value);
+    };
+
+    // handle selection
+    const handleChange = value => {
+        setSelectedValue(value);
+    }
+
+    const fetchCategories = () => {
+        return  myApi.get('/leads/category').then(result => {
+        const res =  result.data.data;
+        console.log(res);
+        return res;
+        });
+    }
 
     return (
         
@@ -56,8 +74,16 @@ export default function LeadCreate() {
             </div>
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" for="name"> Category</label>
-                <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-                type="text" id="age" name="age" placeholder="John Doe" />
+                <AsyncSelect
+                    cacheOptions
+                    defaultOptions
+                    value={selectedValue}
+                    getOptionLabel={e => e.category}
+                    getOptionValue={e => e.id}
+                    loadOptions={fetchCategories}
+                    onInputChange={handleInputChange}
+                    onChange={handleChange}
+                />
             </div>
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" for="name"> Phone-Number</label>
